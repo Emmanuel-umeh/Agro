@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 04/01/2019 13:45
+  	Creation date: 12/08/2018 13:24
   	*/
 
 
@@ -36,7 +36,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.flaticon-makeup:before { content: "\f100"; }
-.flaticon-polish:before { content: "\f101"; }
-.flaticon-facial-treatment:before { content: "\f102"; }
-.flaticon-flower:before { content: "\f103"; }
+.flaticon-shipped:before { content: "\f100"; }
+.flaticon-box:before { content: "\f101"; }
+.flaticon-award:before { content: "\f102"; }
+.flaticon-customer-service:before { content: "\f103"; }
+.flaticon-salad:before { content: "\f104"; }
+.flaticon-diet:before { content: "\f105"; }
