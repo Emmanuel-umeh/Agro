@@ -1,5 +1,9 @@
 import React from 'react';
 
+import OwlCarousel from 'react-owl-carousel';  
+import 'owl.carousel/dist/assets/owl.carousel.css';  
+import 'owl.carousel/dist/assets/owl.theme.default.css';  
+
 function App() {
   return (
 <div>
@@ -54,9 +58,15 @@ function App() {
     </div>
   </nav>
   {/* END nav */}
-  <section id="home-section" className="hero">
-    <div className="home-slider owl-carousel">
-      <div className="slider-item" style={{backgroundImage: "url('/images/bg_1.jpg')"}}>
+  <section id="home-section owl-carousel" className="hero">
+    <div className="home-slider">
+
+    <OwlCarousel items={2}  
+          className="owl-theme"  
+          loop 
+          nav  
+          margin={8} >  
+<div className="slider-item" style={{backgroundImage: "url('/images/bg_1.jpg')"}}>
         <div className="overlay" />
         <div className="container">
           <div className="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -68,6 +78,7 @@ function App() {
           </div>
         </div>
       </div>
+
       <div className="slider-item" style={{backgroundImage: 'url("images/bg_2.jpg")'}}>
         <div className="overlay" />
         <div className="container">
@@ -80,7 +91,37 @@ function App() {
           </div>
         </div>
       </div>
+      </OwlCarousel> 
+      {/* <div className="slider-item" style={{backgroundImage: "url('/images/bg_1.jpg')"}}>
+        <div className="overlay" />
+        <div className="container">
+          <div className="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            <div className="col-md-12 ftco-animate text-center">
+              <h1 className="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
+              <h2 className="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+              <p><a href="#" className="btn btn-primary">View Details</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="slider-item" style={{backgroundImage: 'url("images/bg_2.jpg")'}}>
+        <div className="overlay" />
+        <div className="container">
+          <div className="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            <div className="col-sm-12 ftco-animate text-center">
+              <h1 className="mb-2">100% Fresh &amp; Organic Foods</h1>
+              <h2 className="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+              <p><a href="#" className="btn btn-primary">View Details</a></p>
+            </div>
+          </div>
+        </div>
+      </div> */}
+    
+    
     </div>
+  
+  
   </section>
   <section className="ftco-section">
     <div className="container">
@@ -162,12 +203,14 @@ function App() {
           </div>
         </div>
         <div className="col-md-4">
-          <div className="category-wrap ftco-animate img mb-4 d-flex align-items-end" style={{backgroundImage: 'url(images/category-3.jpg)'}}>
+          <div className="category-wrap ftco-animate img mb-4 d-flex align-items-end" 
+          style={{backgroundImage: 'url("/images/category-3.jpg")'}}>
             <div className="text px-3 py-1">
               <h2 className="mb-0"><a href="#">Juices</a></h2>
             </div>		
           </div>
-          <div className="category-wrap ftco-animate img d-flex align-items-end" style={{backgroundImage: 'url(images/category-4.jpg)'}}>
+          <div className="category-wrap ftco-animate img d-flex align-items-end" 
+          style={{backgroundImage: 'url("/images/category-4.jpg")'}}>
             <div className="text px-3 py-1">
               <h2 className="mb-0"><a href="#">Dried</a></h2>
             </div>
@@ -190,7 +233,7 @@ function App() {
       <div className="row">
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-1.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-1.jpg" alt="Colorlib Template" />
               <span className="status">30%</span>
               <div className="overlay" />
             </a>
@@ -219,7 +262,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-2.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-2.jpg" alt="Colorlib Template" />
               <div className="overlay" />
             </a>
             <div className="text py-3 pb-4 px-3 text-center">
@@ -247,7 +290,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-3.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-3.jpg" alt="Colorlib Template" />
               <div className="overlay" />
             </a>
             <div className="text py-3 pb-4 px-3 text-center">
@@ -275,7 +318,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-4.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-4.jpg" alt="Colorlib Template" />
               <div className="overlay" />
             </a>
             <div className="text py-3 pb-4 px-3 text-center">
@@ -303,7 +346,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-5.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-5.jpg" alt="Colorlib Template" />
               <span className="status">30%</span>
               <div className="overlay" />
             </a>
@@ -332,7 +375,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-6.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-6.jpg" alt="Colorlib Template" />
               <div className="overlay" />
             </a>
             <div className="text py-3 pb-4 px-3 text-center">
@@ -360,7 +403,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-7.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-7.jpg" alt="Colorlib Template" />
               <div className="overlay" />
             </a>
             <div className="text py-3 pb-4 px-3 text-center">
@@ -388,7 +431,7 @@ function App() {
         </div>
         <div className="col-md-6 col-lg-3 ftco-animate">
           <div className="product">
-            <a href="#" className="img-prod"><img className="img-fluid" src="images/product-8.jpg" alt="Colorlib Template" />
+            <a href="#" className="img-prod"><img className="img-fluid" src="/images/product-8.jpg" alt="Colorlib Template" />
               <div className="overlay" />
             </a>
             <div className="text py-3 pb-4 px-3 text-center">
