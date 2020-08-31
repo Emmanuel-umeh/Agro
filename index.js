@@ -69,7 +69,7 @@ app.use(methodOverride('_method'))
 
 
 
-app.use(helmet())
+// app.use(helmet())
 
 
 /** END AUTH ROUTE */
