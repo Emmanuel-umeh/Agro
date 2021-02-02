@@ -11,11 +11,11 @@ router.get("/about", async(req, res) => {
     res.render("about")
 })
 
-router.get("/contact", async(req, res) => {
-    res.render("contact")
+router.get("/gallery", async(req, res) => {
+    res.render("gallery")
 })
 
-router.post("/contact", async(req, res) => {
+router.get("/contact", async(req, res) => {
     res.render("contact")
 })
 
