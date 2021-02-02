@@ -9242,11 +9242,12 @@ textarea.form-control {
     .ftco-footer-social li a:hover {
       color: #000000; }
 
-#map {
+#maps {
   width: 100%; }
   @media (max-width: 991.98px) {
-    #map {
-      height: 300px; } }
+    #maps {
+      height: 300px;
+    display: none } }
 
 @-webkit-keyframes pulse {
   0% {
