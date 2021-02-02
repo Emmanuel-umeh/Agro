@@ -18,6 +18,9 @@ router.get("/gallery", async(req, res) => {
 router.get("/contact", async(req, res) => {
     res.render("contact")
 })
+router.get("/promotions", async(req, res) => {
+    res.render("promotions")
+})
 
 
 router.post("/newsletter", async(req, res) => {
