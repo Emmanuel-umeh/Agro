@@ -1,0 +1,163 @@
+$(document).ready(function () {
+  // Tabs
+  $(".tab").click(function () {
+    $(".tab")
+      .not(this)
+      .removeClass("tab-active");
+    $(this).addClass("tab-active");
+
+    switch ($(".tab").index($(this))) {
+      case 0:
+        $(".underline").css("transform", "translateX(0)");
+        break;
+      case 1:
+        $(".underline").css("transform", "translateX(100%)");
+        break;
+      default:
+        let err = new Error(
+          "No index found for this element. Its index: " +
+          $(".tab").index($(this))
+        );
+        throw err;
+    }
+  });
+
+  let tableTabItem = 2;
+
+  $(".section-offer-pricing-title-container").on("click", ".offer-tab", function () {
+    $(".offer-tab")
+      .not(this)
+      .removeClass("offer-tab-active");
+    $(this).addClass("offer-tab-active");
+    tableTabItem = $(".offer-tab").index($(this)) + 2;
+    switchTable();
+  });
+  switchTable();
+
+  // Table tabs classes on smaller screens
+  function switchTable() {
+    let visibleCell = $('.section-offer-pricing-check:nth-child(' + tableTabItem + ')');
+    visibleCell.addClass('active-cell');
+    $('.section-offer-pricing-check').not(visibleCell).removeClass('active-cell');
+  }
+
+  let alterClass = function () {
+    let ww = window.innerWidth;
+    if (ww < 992) {
+      $('.section-offer-pricing-title').addClass('offer-tab');
+      $('.section-offer-pricing-title:eq(0)').addClass('offer-tab-active');
+    } else if (ww >= 992) {
+      $('.section-offer-pricing-title').removeClass('offer-tab');
+      $('.section-offer-pricing-title').removeClass('offer-tab-active');
+    };
+  };
+  $(window).resize(function () {
+    alterClass();
+  });
+  alterClass();
+
+  // Zipper slider
+  // if you're going to change number of slider's steps add/edit users prices and classes arrays
+  const users = [5, 10, 25, 50];
+  let prices = [62, 158, 392, 634];
+  const teamSavings = [199, 489, 1289, 1989];
+  $(".zipper").on("input", function () {
+    $(".user-numb").text(users[this.value]);
+    $(".team-savings-price").text(teamSavings[this.value]);
+    $(".price-numb").html(
+      prices[this.value] + ' <span class="monthly">/ mo</span>'
+    );
+    // classes declared in scss and void for clearing the effect
+    let classes = ["void", "one", "two", "three", "four"];
+    $(".zipper").removeClass(classes);
+    $(".zipper").addClass(classes[this.value]);
+  });
+
+  $(".mPrice").click(function () {
+    prices = [79, 199, 499, 799];
+    $("#year").hide();
+    $("#month").css("display", "flex");
+    let zipper = $("#year").find(".zipper");
+    let priceNumb = $("#month").find(".price-numb");
+    $(".zipper").val(zipper[0].value);
+    priceNumb.html(
+      prices[parseInt(zipper[0].value, 10)] +
+      ' <span class="monthly">/ mo</span>'
+    );
+  });
+  $(".yPrice").click(function () {
+    prices = [62, 158, 392, 634];
+    $("#month").hide();
+    $("#year").css("display", "flex");
+    let zipper = $("#month").find(".zipper");
+    let priceNumb = $("#year").find(".price-numb");
+    $(".zipper").val(zipper[0].value);
+    priceNumb.html(
+      prices[parseInt(zipper[0].value, 10)] +
+      ' <span class="monthly">/ mo</span>'
+    );
+  });
+
+  /* pricing tabs */
+
+  var tabContentItem = $(".pricing-content-tab");
+  var NavItem = $(".pricing-nav-item ");
+
+
+  tabContentItem.hide();
+  NavItem.first().addClass("current").show();
+  tabContentItem.first().show();
+
+  NavItem.click(function () {
+    NavItem.removeClass("current");
+    $(this).addClass("current");
+    tabContentItem.hide();
+    var activeTab = $(this).find("a").attr("href");
+    $(activeTab).show();
+
+    return false;
+  });
+
+  // Open/Close Q&A
+  $(".qa-set").click(function () {
+    $(this).toggleClass("open");
+  });
+
+
+  var SectionOfferTable = $(".section-offer-pricing-table");
+  var expandMore = $(".section-offer-pricing-link.show");
+  var sectionOfferTitle = $(".section-offer-pricing-section-title.hide");
+  var sectionOfferName = $(".section-offer-pricing-name.hide");
+  var sectionOfferCheck = $(".section-offer-pricing-check.hide");
+  var hideMore = $(".section-offer-pricing-link.hide");
+
+  hideMore.attr('style', 'display:none !important');
+  sectionOfferName.attr('style', 'display:none !important');
+  sectionOfferCheck.attr('style', 'display:none !important');
+
+  expandMore.on("click", function (e) {
+    e.preventDefault();
+    sectionOfferTitle.show();
+    sectionOfferName.show();
+    sectionOfferCheck.show();
+    SectionOfferTable.removeClass("marked");
+    expandMore.hide();
+    hideMore.show();
+  });
+  hideMore.on("click", function (e) {
+    e.preventDefault();
+    sectionOfferTitle.hide();
+    sectionOfferName.attr('style', 'display:none !important');
+    sectionOfferCheck.attr('style', 'display:none !important');
+    SectionOfferTable.addClass("marked");
+    expandMore.show();
+    hideMore.hide();
+  });
+
+  // Smooth scroll to top
+  $("a[href='#top']").click(function () {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
+});
+

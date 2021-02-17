@@ -1,0 +1,39 @@
+function createPlotlyXHR(filename) {
+	var plotID = "plotly_plot_" + filename;
+	var plotEl = document.getElementById(plotID);
+
+	var link = location.href + "/" + filename;
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var jsonData = JSON.parse(this.responseText);
+			var data = jsonData.x.data;
+			var layout = jsonData.x.layout;
+			Plotly.newPlot(plotID, data, layout);
+
+			window.addEventListener("resize", function(){
+				Plotly.Plots.resize(Plotly.d3.select(plotEl).node());
+			});
+		}
+	}
+	xhr.open("GET", link, true);
+	xhr.send();
+}
+
+function createPlotly(id) {
+	var jsonID = "plotly_json_" + id;
+	var plotID = "plotly_plot_" + id;
+	
+	var jsonEl = document.getElementById(jsonID);
+	var plotEl = document.getElementById(plotID);
+
+	var jsonData = JSON.parse(jsonEl.innerHTML);
+	var data = jsonData.x.data;
+	var layout = jsonData.x.layout;
+	Plotly.newPlot(plotID, data, layout);
+
+	window.addEventListener("resize", function(){
+		Plotly.Plots.resize(Plotly.d3.select(plotEl).node());
+	});
+}
